@@ -1,0 +1,65 @@
+# Docker install
+
+sudo dnf -y install dnf-plugins-core
+    8  sudo dnf config-manager --add-repo https://download.docker.com/linux/rhel/docker-ce.repo
+    9  sudo dnf install docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
+   10  systemctl start docker
+   11  systemctl status docker
+   12  docker version
+
+
+# docker container commands
+   13  cd /var/lib/docker
+   14  ls -lrt
+   15  df -hT .
+   16  cd image/
+   17  ls
+   18  cd overlay2/
+   19  ls
+   20  clear
+   21  cd /tmp
+   22  docker info
+   23  docker images
+   24  docker ps -a
+   25  docker run nginx
+   26  docker ps -a
+   27  docker images
+   28  docker run --name phani nginx
+   29  docker images
+   30  docker ps -a
+   31  docker run -itd --name amit nginx
+   32  docker ps -a
+   33  clear
+   34  cat /etc/os-release 
+   35  docker run -it --name edureka ubuntu
+   36  docker ps -a
+   37  docker run -it --name edureka1 ubuntu
+   38  docker ps -a
+   39  clear
+   40  docker ps
+   41  docker ps -a
+   42  clear
+   43  docker ps -a
+   44  docker exec -it 4b74491c2271 /bin/sh
+   45  docker ps -a
+   46  docker exec -it edureka1 /bin/sh
+   47  clear
+   48  docker ps -a
+   49  docker rename 4b74491c2271 gururaj
+   50  docker ps -a
+   51  clear
+   52  docker ps -a
+   53  docker start aa1b2659014b
+   54  docker ps -a
+   55  docker ps -a -q
+   56  docker start $(docker ps -a -q)
+   57  docker ps -a
+   58  docker stop 7d038c85ea2d
+   59  docker stop aa1b2659014b
+   60  clear
+   61  docker ps -a
+   62  docker container prune
+   63  docker ps -a
+   64  docker info
+   65  docker ps
+   66  docker inspect 4b74491c2271
