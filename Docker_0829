@@ -1,0 +1,99 @@
+docker run -itd --name demo nginx
+ 1020  docker ps -a
+ 1021  docker inspect 041d7542edf6
+ 1022  docker run -itd -P --name demo1 nginx
+ 1023  docker ps -a
+ 1024  curl localhost:32768
+ 1025  docker run -itd -P --name demo2 nginx
+ 1026  docker ps -a
+ 1027  docker restart 79527bc71540
+ 1028  docker ps -a
+ 1029  clear
+ 1030  docker run -itd -p 81:80 --name apurva nginx
+ 1031  docker ps -a
+ 1032  docker restart 20a308076d95
+ 1033  docker ps -a
+ 1034  netstat -an | grep 82
+ 1035  netstat -an | grep 81
+ 1036  clear
+ 1037  docker ps -a
+ 1038  docker logs 20a308076d95
+ 1039  docker logs -f 20a308076d95
+ 1040  clear
+ 1041  docker ps -a
+ 1042  docker top 20a308076d95
+ 1043  docker stats
+ 1044  pwd
+ 1045  vi a.txt
+ 1046  docker ps -a
+ 1047  docker cp a.txt 20a308076d95:/tmp
+ 1048  docker exec -it 20a308076d95 /bin/bash
+ 1049  docker ps -a
+ 1050  docker cp 20a308076d95:/tmp/b.txt .
+ 1051  ls -lrt
+ 1052  clear
+ 1053  docker ps -a
+ 1054  colima restart
+ 1055  docker ps -a
+ 1056  docker run -itd --name ravi --restart always -P nginx
+ 1057  docker ps -a
+ 1058  docker start $(docker ps -a -q)
+ 1059  docker ps -a
+ 1060  colima restart
+ 1061  clear
+ 1062  docker ps -a
+ 1063  docker start $(docker ps -a -q)
+ 1064  docker ps -a
+ 1065  docker update --restart=always 20a308076d95
+ 1066  colima restart
+ 1067  docker ps -a
+ 1068  docker start $(docker ps -a -q)
+ 1069  clear
+ 1070  docker ps -a
+ 1071  docker update --restart=always 778a45090594
+ 1072  docker ps -a
+ 1073  docker ps -a -q
+ 1074  docker stat
+ 1075  docker stats
+ 1076  docker run -itd -m 512m --name phani nginx
+ 1077  docker ps -a
+ 1078  docker stats
+ 1079  clear
+ 1080  docker ps -a
+ 1081  docker rm 79527bc71540
+ 1082  docker stop 79527bc71540
+ 1083  docker rm 79527bc71540
+ 1084  docker ps -a
+ 1085  docker rm 778a45090594 -f
+ 1086  docker ps -a
+ 1087  docker stop $(docker ps -a -q)
+ 1088  docker rm $(docker ps -a -q)
+ 1089  docker ps -a
+ 1090  clear
+ 1091  docker images
+ 1092  docker run -it --name edureka --restart always ubuntu
+ 1093  clear
+ 1094  docker ps -a
+ 1095  docker commit 778a45090594 rashmi
+ 1096  docker commit d4bd78b8fb85 rashmi
+ 1097  docker images
+ 1098  docker run -it rashmi
+ 1099  docker images
+ 1100  docker push devopstrainer1/0829:tagname
+ 1101  docker tag 
+ 1102  docker tag rashmi devopstrainer1/0829:rashmi
+ 1103  docker images
+ 1104  docker push devopstrainer1/0829:rashmi
+ 1105  docker login
+ 1106  docker push devopstrainer1/0829:rashmi
+ 1107  docker pull devopstrainer1/0829:rashmi
+ 1108  clear
+ 1109  docker images
+ 1110  docker tag nginx devopstrainer1/0829:nginx
+ 1111  docker images
+ 1112  docker push devopstrainer1/0829:nginx
+ 1113  clear
+ 1114  docker images
+ 1115  docker run aquasec/trivy image rashmi
+ 1116  docker ps -a
+ 1117  docker run aquasec/trivy image ubuntu
