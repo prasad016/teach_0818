@@ -1,0 +1,96 @@
+### Dockerfile example
+
+### 1st Dockerfile
+FROM ubuntu
+RUN apt-get update
+RUN apt-get install -y vim
+RUN apt-get install -y nginx
+RUN rm /var/www/html/*
+WORKDIR /var/www/html/
+RUN echo "<H1> hello from surendra </H1>" > index.html
+EXPOSE 80
+CMD /usr/sbin/nginx -g "daemon off;"
+
+### 2nd Dockerfile
+
+FROM shubham
+RUN rm /var/www/html/*
+COPY index.html /var/www/html/
+
+
+### Docker Commands
+
+ vi Dockerfile
+ 1386  docker build -t shubham .
+ 1387  docker images
+ 1388  docker inspect shubham
+ 1389  cat Dockerfile
+ 1390  clear
+ 1391  docker images
+ 1392  docker run -itd -p 89:80 shubham
+ 1393  docker ps -a
+ 1394  ls
+ 1395  vi amit
+ 1396  docker build -t navin -f amit .
+ 1397  docker images
+ 1398  docker rmi ab0a733f238f
+ 1399  vi index.html
+ 1400  docker build -t navin -f amit .
+ 1401  docker images
+ 1402  docker run -itd -p 98:80 navin
+ 1403  docker ps -a
+ 1404  cat Dockerfile
+ 1405  clear
+ 1406  docker pull nginx
+ 1407  clear
+ 1408  docker images
+ 1409  docker save shubham
+ 1410  docker save shubham -o ananth.tar
+ 1411  ls -lrt
+ 1412  docker rmi shubham -f
+ 1413  docker load < ananth.tar
+ 1414  docker images
+ 1415  docker ps -a
+ 1416  docker export 6b33360104c9 > a.tar
+ 1417  ls -lrt
+ 1418  docker import a.tar tushar
+ 1419  docker images
+ 1420  docker inspect tushar
+ 1421  docker images
+ 1422  docker ps -a
+ 1423  docker history tushar
+ 1424  docker inspect 63fd40d97e1c
+ 1425  ip a
+ 1426  ifconfig
+ 1427  docker network ls
+ 1428  docker network rm amitnet
+ 1429  clear
+ 1430  docker network ls
+ 1431  ifconfig
+ 1432  docker network ls
+ 1433  docker inspect bridge
+ 1434  docker network ls
+ 1435  docker run -itd --name vijay --net host -P nginx
+ 1436  docker ps -a
+ 1437  docker inspect 2dad115ff62b
+ 1438  docker run -itd --name vijay1 --net host -P nginx
+ 1439  docker ps -a
+ 1440  docker logs 1db9012338aa
+ 1441  docker network ls
+ 1442  docker run -itd --net none -P nginx
+ 1443  docker ps -a
+ 1444  docker inspect 3d42a9608e4f
+ 1445  docker network ls
+ 1446  docker network create gururaj
+ 1447  docker network ls
+ 1448  docker inspect d6ce2c7b4985
+ 1449  docker inspect 81fada982036
+ 1450  docker ps -a
+ 1451  docker inspect 63fd40d97e1c
+ 1452  docker network ls
+ 1453  docker network connect
+ 1454  docker ps -a
+ 1455  docker network connect gururaj 63fd40d97e1c
+ 1456  docker inspect 63fd40d97e1c
+ 1457  docker network disconnect bridge 63fd40d97e1c
+ 1458  docker inspect 63fd40d97e1c
