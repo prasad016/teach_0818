@@ -1,0 +1,119 @@
+###Kubernetes labels example 
+apiVersion: v1
+kind: Pod
+metadata:
+  name: edureka1
+  labels:
+    app: abc
+    teach: edureka
+spec:
+  containers:
+    - name: amit
+      image: httpd
+      resources:
+        limits:
+          memory: "256Mi"
+          cpu: "100m"
+
+### Kubernetes namespace example
+
+apiVersion: v1
+kind: Pod
+metadata:
+  name: edureka3
+  namespace: edureka
+  labels:
+    app: abc
+    name: amit
+    app: 123e
+spec:
+  containers:
+    - name: amit
+      image: httpd
+      resources:
+        limits:
+          memory: "256Mi"
+          cpu: "100m"
+
+
+### Kubernetes deployment object creation example
+
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: abc123
+  labels:
+    app: nginx
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: nginx
+  template:
+    metadata:
+      labels:
+        app: nginx
+    spec:
+      containers:
+        - name: amit
+          image: httpd
+          ports:
+            - containerPort: 80
+
+
+
+#### Kubernetes commands
+
+kubectl get pods
+  516  kubectl get pods --show-labels
+  517  kubectl run pod2 --image httpd
+  518  kubectl get pods --show-labels
+  519  cat a.yml 
+  520  cp a.yml b.yml
+  521  vi b.yml
+  522  kubectl apply -f b.yml 
+  523  kubectl get pods --show-labels
+  524  cp b.yml c.yml
+  525  vi c.yml
+  526  kubectl apply -f c.yml 
+  527  kubectl get pods --show-labels
+  528  cat c.yml 
+  529  kubectl get pods --show-labels
+  530  kubectl get pods -l app=abc
+  531  kubectl get pods -l app=uytkjdaf
+  532  kubectl get namespaces
+  533  kubectl get pods -n
+  534  kubectl get pods -A
+  535  kubectl get namespaces
+  536  kubectl get nodes --show-labels 
+  537  kubectl get nodes --show-labels | grep arc
+  538  clear
+  539  kubectl create namespace edureka
+  540  kubectl get namespaces
+  541  kubectl get pods
+  542  sudo vi c.yml 
+  543  kubectl apply -f c.yml 
+  544  kubectl get pods
+  545  kubectl get pods -n edureka
+  546  clear
+  547  kubectl get pods
+  548  kubectl delete pod edureka2
+  549  cat a.yml 
+  550  clear
+  551  sl
+  552  ls
+  553  vi d.yml
+  554  kubectl apply -f d.yml 
+  555  kubectl get all
+  556  kubectl delete pod abc123-796df9cb7f-fpf92
+  557  kubectl get all
+  558  cat d.yml 
+  559  kubectl get pods --show-labels
+  560  kubectl get all
+  561  kubectl scale deployment abc123 --replicas=5
+  562  kubectl get all
+  563  cat d.yml 
+  564  kubectl get all
+  565  kubectl scale deployment abc123 --replicas=2
+  566  kubectl get all
+  567  kubectl describe deployment abc123

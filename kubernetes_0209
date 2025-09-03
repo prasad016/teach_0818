@@ -1,0 +1,102 @@
+### yaml file examples
+
+#1st file
+
+apiVersion: v1
+kind: Pod
+metadata:
+  name: edureka
+spec:
+  containers:
+    - name: amit
+      image: httpd
+
+# 2nd file
+
+apiVersion: v1
+kind: Pod
+metadata:
+  name: edureka1
+spec:
+  containers:
+    - name: amit
+      image: httpd
+      resources:
+        limits:
+          memory: "256Mi"
+          cpu: "100m"
+
+# 3rd file
+
+apiVersion: v1
+kind: Pod
+metadata:
+  name: edureka2
+spec:
+  containers:
+    - name: amit
+      image: httpd
+      resources:
+        limits:
+          memory: "256Mi"
+          cpu: "100m"
+
+
+
+### kubernetes commands
+
+kubectl version
+  503  clear
+  504  kubectl get nodes
+  505  kubectl get nodes -o wide
+  506  clear
+  507  kubectl run pod1 --image nginx
+  508  kubectl get pods
+  509  kubectl get pods -o wide
+  510  kubectl describe pod pod1
+  511  clear
+  512  kubectl get pods
+  513  kubectl exec -it pod1 -- bash
+  514  kubectl get pods
+  515  kubectl edit pod pod1
+  516  kubectl get pods
+  517  kubectl describe pod pod1
+  518  history
+  519  clear
+  520  kubectl get pods -o wide
+  521  kubectl delete pod pod1
+  522  cd /tmp
+  523  ls -lrt
+  524  vi a.yml
+  525  kubectl apply -f a.yml 
+  526  kubectl get pods
+  527  kubectl describe pod edureka
+  528  kubectl logs pod edureka
+  529  kubectl logs edureka
+  530  kubectl logs -f edureka
+  531  cat a.yml 
+  532  kubectl apply -f a.yml 
+  533  kubectl get pods
+  534  vi a.yml 
+  535  kubectl apply -f a.yml 
+  536  kubectl get pods
+  537  vi a.yml 
+  538  kubectl apply -f a.yml 
+  539  kubectl get pods
+  540  cp a.yml b.yml
+  541  vi b.yml
+  542  kubectl get pods
+  543  kubectl describe pod edureka
+  544  vi b.yml
+  545  kubectl apply -f b.yml 
+  546  kubectl get pods
+  547  kubectl describe pod edureka1
+  548  vi b.yml
+  549  kubectl apply -f b.yml 
+  550  kubectl get pods
+  551  cp b.yml c.yml
+  552  vi c.yml
+  553  kubectl apply -f c.yml 
+  554  kubectl get pods
+  555  kubectl describe pod edureka2
+  556  kubectl get pods -o wide
