@@ -1,0 +1,74 @@
+### service type - clusterip
+apiVersion: v1
+kind: Service
+metadata:
+  name: edureka-clusterip
+spec:
+  selector:
+    app: nginx
+  ports:
+    - protocol: TCP
+      port: 80
+      targetPort: 80
+  type: ClusterIP
+
+## service type - nodeport
+
+apiVersion: v1
+kind: Service
+metadata:
+  name: edureka-nodeport
+spec:
+  selector:
+    app: nginx
+  ports:
+    - protocol: TCP
+      port: 80
+      targetPort: 80
+  type: NodePort
+
+### service type - loadbalancer
+
+apiVersion: v1
+kind: Service
+metadata:
+  name: edureka-nodeport
+spec:
+  selector:
+    app: nginx
+  ports:
+    - protocol: TCP
+      port: 80
+      targetPort: 80
+  type: LoadBalancer
+
+#### kubernetes commands
+
+kubectl describe deployment abc123
+  512  clear
+  513  kubectl get all
+  514  cat a.yml 
+  515  kubectl set image deployment abc123 amit=nginx
+  516  kubectl get all
+  517  kubectl describe pod abc123-f5cc4759f-456bb
+  518  kubectl get all
+  519  kubectl rollout history deployment abc123
+  520  kubectl rollout undo deployment abc123 --to-revision=1
+  521  kubectl get all
+  522  kubectl rollout history deployment abc123
+  523  clear
+  524  kubectl get all
+  525  kubectl get pods --show-labels
+  526  vi cluster.yml
+  527  kubectl apply -f cluster.yml 
+  528  kubectl get svc
+  529  vi nodeport.yml
+  530  kubectl apply -f nodeport.yml 
+  531  clear
+  532  kubectl get all
+  533  kubectl get nodes -o wide
+  534  clear
+  535  ls
+  536  cp nodeport.yml loadbalancer.yml
+  537  vi loadbalancer.yml 
+  538  kubectl apply -f loadbalancer.yml
