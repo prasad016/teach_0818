@@ -1,0 +1,131 @@
+## yaml file using shuf 
+apiVersion: v1
+kind: Pod
+metadata:
+  name: random
+spec:
+  containers:
+    - name: alpine
+      image: alpine
+      command: ["/bin/sh", "-c"]
+      args: ["shuf -i 0-100 -n 1 >> /opt/num.out; sleep 200;"]
+
+## yaml file using volume mount
+
+apiVersion: v1
+kind: Pod
+metadata:
+  name: random
+spec:
+  containers:
+    - name: alpine
+      image: alpine
+      command: ["/bin/sh", "-c"]
+      args: ["shuf -i 0-100 -n 1 >> /opt/num.out; sleep 200;"]
+      volumeMounts:
+        - name: external-vol
+          mountPath: /opt
+  volumes:
+    - name: external-vol
+      hostPath:
+        path: /tmp
+        type: Directory
+
+## invoking aws vault secret
+
+apiVersion: secrets-store.csi.x-k8s.io/v1
+kind: SecretProviderClass
+metadata:
+  name: azure-secret
+spec:
+  provider: azure
+  parameters:
+    userAssignedIdentityID: ""
+    keyvaultName: ""
+    objects: |
+      array:
+        - | 
+          objectName: db-amit
+          objectType: secret
+
+# invoking locally created secret
+
+apiVersion: v1
+kind: Pod
+metadata:
+  name: database
+spec:
+  containers:
+    - name: mysql
+      image: mysql
+      env:
+        - name: MYSQL_ROOT_PASSWORD
+          valueFrom:
+            secretKeyRef:
+              name: rashmi
+              key: password
+        - name: MYSQL_ROOT_USERNAME
+          value: admin
+
+
+### kubernetes commands
+
+kubectl apply -f a.yml 
+  506  kubectl get pods
+  507  kubectl exec random -- cat /opt/num.out
+  508  kubectl delete pod random
+  509  cp a.yml b.yml
+  510  vi b.yml
+  511  car b.yml 
+  512  cat b.yml 
+  513  kubectl apply -f b.yml 
+  514  kubectl get pods
+  515  kubectl exec random -- cat /opt/num.out
+  516  kubectl delete pod random
+  517  kubectl apply -f b.yml 
+  518  kubectl exec random -- cat /opt/num.out
+  519  clear
+  520  kubectl run mysql --image mysql --env MYSQL_ROOT_PASSWORD=amit
+  521  kubectl get pods
+  522  kubectl get secrets
+  523  clear
+  524  kubectl create secret generic rashmi --from-literal password=edureka
+  525  kubectl get secret
+  526  kubectl get secret -o yaml rashmi
+  527  kubectl edit secret rashmi
+  528  clear
+  529  sudo vi secret.yaml
+  530  kubectl apply -f secret.yaml 
+  531  kubectl get pods
+  532  kubectl edit secret rashmi
+  533  vi c.yml
+  534  helm
+  535  helm repo list
+  536  helm repo add bitnami https://charts.bitnami.com/bitnami
+  537  helm repo update
+  538  helm search nginx
+  539  helm search repo nginx
+  540  helm pull bitnami/nginx
+  541  ls -lrt
+  542  helm pull --untar bitnami/nginx
+  543  ls -lrt
+  544  cd nginx
+  545  ls
+  546  cat Chart.yaml 
+  547  ls
+  548  cd templates/
+  549  ls
+  550  vi deployment.yaml 
+  551  cd ..
+  552  ls
+  553  vi values.yaml 
+  554  cd ..
+  555  ls
+  556  vi nginx.yml
+  557  helm install gururaj bitnami/nginx -f nginx.yml --dry-run
+  558  gcloud auth login
+  559  helm install gururaj bitnami/nginx -f nginx.yml --dry-run
+  560  helm install gururaj bitnami/nginx -f nginx.yml
+  561  helm list
+  562  kubectl get all
+  563  helm uninstall gururaj
